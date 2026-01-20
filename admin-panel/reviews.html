@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reviews | Welcome SEJ</title>
+
+<link rel="icon" type="image/png" href="favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:
+    linear-gradient(135deg, rgba(20,83,45,0.85), rgba(34,197,94,0.55)),
+    url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6");
+  background-size:cover;
+  background-position:center;
+  color:#ffffff;
+}
+
+.layout{
+  display:flex;
+  min-height:100vh;
+}
+
+/* SIDEBAR */
+.sidebar{
+  width:220px;
+  padding:22px;
+  background:rgba(255,255,255,0.10);
+  backdrop-filter:blur(10px);
+  border-right:1px solid rgba(255,255,255,0.18);
+}
+
+.sidebar h2{
+  font-size:13px;
+  letter-spacing:1.2px;
+  margin-bottom:24px;
+  text-align:center;
+}
+
+.sidebar a{
+  display:block;
+  padding:11px;
+  margin-bottom:8px;
+  font-size:12px;
+  color:#dcfce7;
+  text-decoration:none;
+  border-radius:10px;
+  transition:0.25s ease;
+}
+
+.sidebar a.active,
+.sidebar a:hover{
+  background:rgba(34,197,94,0.28);
+}
+
+/* MAIN */
+.main{
+  flex:1;
+  padding:22px;
+}
+
+/* HEADER */
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:18px;
+}
+
+.header h1{
+  font-size:16px;
+}
+
+.logout{
+  background:linear-gradient(135deg,#22c55e,#16a34a);
+  border:none;
+  color:#fff;
+  padding:8px 14px;
+  border-radius:8px;
+  font-size:12px;
+  cursor:pointer;
+}
+
+/* PANEL */
+.panel{
+  background:rgba(255,255,255,0.14);
+  backdrop-filter:blur(12px);
+  padding:18px;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,0.20);
+  box-shadow:0 10px 25px rgba(0,0,0,0.16);
+}
+
+/* TABLE */
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:12px;
+}
+
+th,td{
+  padding:10px;
+  text-align:left;
+  vertical-align:top;
+}
+
+th{
+  color:#dcfce7;
+  font-weight:400;
+}
+
+tr:not(:last-child){
+  border-bottom:1px solid rgba(255,255,255,0.20);
+}
+
+/* BADGES */
+.badge{
+  padding:3px 10px;
+  border-radius:12px;
+  font-size:10px;
+  color:#fff;
+}
+
+.pending{background:#eab308;}
+.approved{background:#22c55e;}
+.rejected{background:#ef4444;}
+
+/* ACTION BUTTONS */
+.action-btn{
+  padding:5px 10px;
+  font-size:11px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  color:#fff;
+}
+
+.approve-btn{background:#22c55e;}
+.reject-btn{background:#ef4444;margin-left:6px;}
+
+/* EMPTY */
+.empty{
+  text-align:center;
+  padding:40px 0;
+  color:#dcfce7;
+  font-size:13px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="layout">
+
+  <div class="sidebar">
+    <h2>welcome SEJ</h2>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="consultations.html">Consultations</a>
+    <a href="orders.html">Orders</a>
+    <a href="kits.html">Kits</a>
+    <a href="diseases.html">Diseases</a>
+    <a href="reviews.html" class="active">Reviews</a>
+    <a href="settings.html">Settings</a>
+  </div>
+
+  <div class="main">
+
+    <div class="header">
+      <h1>Reviews</h1>
+      <button class="logout" onclick="ADMIN_AUTH.adminLogout()">Logout</button>
+    </div>
+
+    <div class="panel">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Rating</th>
+            <th>Review</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="reviewsBody">
+          <tr>
+            <td colspan="5">
+              <div class="empty">No reviews found.</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/reviews.js"></script>
+
+</body>
+</html>
